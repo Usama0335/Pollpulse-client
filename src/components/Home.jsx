@@ -32,7 +32,8 @@ const Home = () => {
   };
 
   const handleSharePoll = (pollId) => {
-    const link = `${window.location.origin}/polls/${pollId}`;
+    const link = `${window.location.origin}/share/${pollId}`;
+
     setShareLink(link);
   };
 

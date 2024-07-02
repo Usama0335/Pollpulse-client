@@ -3,13 +3,12 @@ import Home from './components/Home.jsx';
 import Signup from './components/Signup.jsx';
 import Signin from './components/Signin.jsx';
 import Profile from './components/Profile.jsx';
-import Dashboard from './components/Dashboard.jsx'; // New dashboard component
-import PublicPolls from './components/PublicPolls.jsx'; // New public polls component
-
-// Poll related
+import Dashboard from './components/Dashboard.jsx';
+import PublicPolls from './components/PublicPolls.jsx';
 import PollCreate from './components/poll/PollCreate.jsx';
 import PollEdit from './components/poll/PollEdit.jsx';
 import PollDetail from './components/poll/PollDetail.jsx';
+import SharedPoll from './components/SharedPoll.jsx'; // Import the new component
 import PrivateRoute from './components/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
@@ -19,7 +18,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/polls",
-    element: <PublicPolls />, // Updated to show public polls
+    element: <PublicPolls />,
   },
   {
     path: "/polls/create",
@@ -58,12 +57,16 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/dashboard", // New dashboard route
+    path: "/dashboard",
     element: (
       <PrivateRoute>
         <Dashboard />
       </PrivateRoute>
     ),
+  },
+  {
+    path: "/share/:pollId", // New route for shared polls
+    element: <SharedPoll />,
   },
 ]);
 
